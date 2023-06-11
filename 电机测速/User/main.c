@@ -30,7 +30,7 @@ void TIM2_IRQHandler(void)
 {
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
-		Speed = Encoder_Get()*0.065*3.1415926*5/11;
+		Speed = Encoder_Get()*0.065*3.1415926*10/11;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 }
