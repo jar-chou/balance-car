@@ -4,7 +4,8 @@
 #include "Timer.h"
 #include "Encoder.h"
 #include "Motor.h"
-int16_t Speed;
+#include <stdio.h>
+double Speed;
 
 int main(void)
 {
@@ -14,9 +15,14 @@ int main(void)
 	Motor_Init();
 	OLED_ShowString(1, 1, "Speed:");
 	Motor_SetSpeed(50);
+	char string[16];
 	while (1)
 	{
-		OLED_ShowSignedNum(1, 7, Speed, 3);
+		sprintf(string, "Speed:%.1f", Speed);
+		OLED_Clear();
+		OLED_ShowString(1, 1, string);
+		OLED_ShowString(1, 1, "Speed:");
+		Delay_ms(100);
 	}
 }
 
@@ -24,7 +30,7 @@ void TIM2_IRQHandler(void)
 {
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
-		Speed = Encoder_Get()*60/660;
+		Speed = Encoder_Get()*0.065*3.1415926*5/11;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 }
