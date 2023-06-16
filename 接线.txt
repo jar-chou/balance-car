@@ -1,0 +1,56 @@
+               (TB6612FNG 引脚)
+                   \
+370 减速电机      M1 r->A01,M2w->A02                  M1->B02,M2->B01
+               HALL C2->B12,HALL C1->B13        HALL C1->B14,HALL C2->B15
+  
+
+TB6612FNG 电机驱动模块 PWNA ->A1
+                      AIN2->A2
+                      AIN1->A3
+                      BIN1->A4 
+                      BIN2->A5
+                      PWNB->A6
+
+蓝牙模块       RXD ->A10
+           TXD  ->A11
+
+
+MPU6050   SCL  ->B6
+          SDA  ->B7
+
+  
+
+OLD     SDA  -> B11
+        SCL  -> B10
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+exchange to the follow version:
+
+               (TB6612FNG 引脚)
+                   \
+370 减速电机      M1 r->A01,M2w->A02                  M1->B02,M2->B01
+               HALL C2->A0,HALL C1->A1        HALL C1->A7,HALL C2->A6
+  
+
+TB6612FNG 电机驱动模块 PWNA ->A8
+                      AIN2->A2
+                      AIN1->A3
+                      BIN1->A4 
+                      BIN2->A5
+                      PWNB->A11
+
+蓝牙模块       RXD ->A9
+           TXD  ->A10
+
+
+MPU6050   SCL  ->B6
+          SDA  ->B7
+
+  
+
+OLD     SDA  -> B11
+        SCL  -> B10
