@@ -66,11 +66,11 @@ void Encoder_Init(void)
 	
 }
 
-void Encoder_Get(uint16_t* NUM)
+void Encoder_Get(int16_t* NUM)
 {
 	NUM[0] = TIM_GetCounter(TIM2);
 	TIM_SetCounter(TIM2, 0);
-	NUM[1] = TIM_GetCounter(TIM2);
+	NUM[1] = TIM_GetCounter(TIM3);
 	TIM_SetCounter(TIM3, 0);
 	return;
 }

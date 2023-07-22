@@ -40,16 +40,14 @@ void PWM_Init(void)
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_Pulse = 0;
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-
 	TIM_OC1Init(TIM1, &TIM_OCInitStructure);
 
-	/* PWM1 Mode configuration: Channel2 */
+	/* PWM1 Mode configuration: Channel4 */
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_Pulse = 500;
-
-	TIM_OC2Init(TIM1, &TIM_OCInitStructure);
+	TIM_OC4Init(TIM1, &TIM_OCInitStructure);
 	
-	NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_IRQn;  //TIM8中断
+	NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_IRQn;  //TIM1中断
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;  //先占优先级1级
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;  //从优先级1级
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道被使能
@@ -66,7 +64,3 @@ void PWM_Init(void)
 	TIM_Cmd(TIM1, ENABLE);
 }
 
-void PWM_SetCompare1(uint16_t Compare)
-{
-	TIM_SetCompare1(TIM1, Compare);
-}

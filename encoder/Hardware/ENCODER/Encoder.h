@@ -3,6 +3,6 @@
 #include "stm32f10x.h"                  // Device header
 
 void Encoder_Init(void);
-void Encoder_Get(uint16_t*);
+void Encoder_Get(int16_t*);
 
 #endif
